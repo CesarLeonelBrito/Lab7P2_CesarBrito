@@ -86,6 +86,36 @@ public class Main extends javax.swing.JFrame {
         tf_cancion_inv = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         tf_cancion_duracion = new javax.swing.JTextField();
+        jd_listar_canciones = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_canciones = new javax.swing.JList<>();
+        jLabel24 = new javax.swing.JLabel();
+        popup_albums = new javax.swing.JPopupMenu();
+        add_cancion = new javax.swing.JMenuItem();
+        listar_canciones = new javax.swing.JMenuItem();
+        popup_canciones = new javax.swing.JPopupMenu();
+        eliminar = new javax.swing.JMenuItem();
+        modificar = new javax.swing.JMenuItem();
+        reproducir = new javax.swing.JMenuItem();
+        jd_mod_cancion = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tf_cancion_inv1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        rb_si1 = new javax.swing.JRadioButton();
+        tf_cancion_duracion1 = new javax.swing.JTextField();
+        rb_no1 = new javax.swing.JRadioButton();
+        tf_cancion_nombre1 = new javax.swing.JTextField();
+        tf_cancion_dist1 = new javax.swing.JTextField();
+        tf_cancion_comp1 = new javax.swing.JTextField();
+        tf_cancion_pro1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jb_mod_cancion = new javax.swing.JButton();
+        Distribuidor1 = new javax.swing.JLabel();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         jb_crear_artista = new javax.swing.JButton();
         jb_listar_artistas = new javax.swing.JButton();
 
@@ -438,10 +468,10 @@ public class Main extends javax.swing.JFrame {
 
         jLabel21.setText("Exclusico de Spotify:");
 
-        buttonGroup1.add(rb_si);
+        buttonGroup4.add(rb_si);
         rb_si.setText("Si");
 
-        buttonGroup1.add(rb_no);
+        buttonGroup4.add(rb_no);
         rb_no.setText("No");
 
         jLabel22.setText("Nombre:");
@@ -524,6 +554,171 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(tf_cancion_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jb_add_cancion)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jl_canciones.setModel(new DefaultListModel());
+        jl_canciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_cancionesMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jl_canciones);
+
+        jLabel24.setText("POPUP MENU, RIGHT CLICK");
+
+        javax.swing.GroupLayout jd_listar_cancionesLayout = new javax.swing.GroupLayout(jd_listar_canciones.getContentPane());
+        jd_listar_canciones.getContentPane().setLayout(jd_listar_cancionesLayout);
+        jd_listar_cancionesLayout.setHorizontalGroup(
+            jd_listar_cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_cancionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(jd_listar_cancionesLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(503, Short.MAX_VALUE))
+        );
+        jd_listar_cancionesLayout.setVerticalGroup(
+            jd_listar_cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listar_cancionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        add_cancion.setText("Agregar Cancion");
+        add_cancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_cancionActionPerformed(evt);
+            }
+        });
+        popup_albums.add(add_cancion);
+
+        listar_canciones.setText("Listar Canciones");
+        listar_canciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listar_cancionesActionPerformed(evt);
+            }
+        });
+        popup_albums.add(listar_canciones);
+
+        eliminar.setText("Eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+        popup_canciones.add(eliminar);
+
+        modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
+        popup_canciones.add(modificar);
+
+        reproducir.setText("Reproducir");
+        popup_canciones.add(reproducir);
+
+        jLabel25.setText("Invitado(Si Hay):");
+
+        jLabel26.setText("Productor:");
+
+        jLabel27.setText("Exclusico de Spotify:");
+
+        jLabel28.setText("Duracion(Segundos):");
+
+        buttonGroup5.add(rb_si1);
+        rb_si1.setText("Si");
+
+        buttonGroup5.add(rb_no1);
+        rb_no1.setText("No");
+
+        jLabel29.setText("Nombre:");
+
+        jLabel30.setText("Compositor:");
+
+        jb_mod_cancion.setText("Modificar");
+        jb_mod_cancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mod_cancionActionPerformed(evt);
+            }
+        });
+
+        Distribuidor1.setText("Distribuidor:");
+
+        javax.swing.GroupLayout jd_mod_cancionLayout = new javax.swing.GroupLayout(jd_mod_cancion.getContentPane());
+        jd_mod_cancion.getContentPane().setLayout(jd_mod_cancionLayout);
+        jd_mod_cancionLayout.setHorizontalGroup(
+            jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mod_cancionLayout.createSequentialGroup()
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd_mod_cancionLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jb_mod_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_mod_cancionLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel26)
+                            .addComponent(Distribuidor1)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_mod_cancionLayout.createSequentialGroup()
+                                .addComponent(rb_si1)
+                                .addGap(18, 18, 18)
+                                .addComponent(rb_no1))
+                            .addComponent(tf_cancion_nombre1)
+                            .addComponent(tf_cancion_dist1)
+                            .addComponent(tf_cancion_comp1)
+                            .addComponent(tf_cancion_pro1)
+                            .addComponent(tf_cancion_inv1)
+                            .addComponent(tf_cancion_duracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        jd_mod_cancionLayout.setVerticalGroup(
+            jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mod_cancionLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(tf_cancion_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(tf_cancion_comp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Distribuidor1)
+                    .addComponent(tf_cancion_dist1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(tf_cancion_pro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(rb_si1)
+                    .addComponent(rb_no1))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(tf_cancion_inv1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_mod_cancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(tf_cancion_duracion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jb_mod_cancion)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -734,7 +929,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jl_albumsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_albumsMouseClicked
         // TODO add your handling code here:
-        
+        if (evt.isMetaDown()) {
+            if (jl_albums.getSelectedIndex() >= 0) {
+                poAlb = jl_albums.getSelectedIndex();
+                popup_albums.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
     }//GEN-LAST:event_jl_albumsMouseClicked
 
     private void add_playlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_playlistActionPerformed
@@ -794,6 +994,118 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_add_cancionActionPerformed
 
+    private void add_cancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cancionActionPerformed
+        // TODO add your handling code here:
+        jd_crear_cancion.setModal(true);
+        jd_crear_cancion.pack();
+        jd_crear_cancion.setLocationRelativeTo(this);
+        jd_crear_cancion.setVisible(true);
+    }//GEN-LAST:event_add_cancionActionPerformed
+
+    private void listar_cancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listar_cancionesActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_canciones.getModel();
+        modelo.removeAllElements();
+        administratArtistas ap = new administratArtistas("./artistas.cbm");
+        ap.cargarArchivo();
+        for (int i = 0; i < ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().size(); i++) {
+            modelo.addElement(ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(i));
+        }
+        jl_canciones.setModel(modelo);        
+        jd_listar_canciones.setModal(true);
+        jd_listar_canciones.pack();
+        jd_listar_canciones.setLocationRelativeTo(this);
+        jd_listar_canciones.setVisible(true);
+    }//GEN-LAST:event_listar_cancionesActionPerformed
+
+    private void jl_cancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_cancionesMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            if (jl_canciones.getSelectedIndex() >= 0) {
+                popup_canciones.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_cancionesMouseClicked
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        // TODO add your handling code here:
+        try {
+            int po = jl_canciones.getSelectedIndex();
+            DefaultListModel modelo = (DefaultListModel) jl_canciones.getModel();
+            modelo.remove(po);
+            jl_canciones.setModel(modelo);
+            administratArtistas ap = new administratArtistas("./artistas.cbm");
+            ap.cargarArchivo();
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().remove(po);
+            ap.escribirArchivo();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "OCURRIO UN ERROR");
+        }
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        // TODO add your handling code here:
+        try {
+            int po = jl_canciones.getSelectedIndex();
+            administratArtistas ap = new administratArtistas("./artistas.cbm");
+            ap.cargarArchivo();
+            Cancion x = ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po);
+            tf_cancion_nombre1.setText(x.getNombre());
+            tf_cancion_comp1.setText(x.getCompositor());
+            tf_cancion_dist1.setText(x.getDistribuidor());
+            tf_cancion_pro1.setText(x.getProductor());
+            tf_cancion_inv1.setText(x.getInvitado());
+            tf_cancion_duracion1.setText(String.valueOf(x.getDuracion()));
+            if (x.isExclusivo() == true) {
+                rb_si1.setSelected(true);
+            } else if (x.isExclusivo() == false) {
+                rb_no1.setSelected(true);
+            }
+            
+            jd_mod_cancion.setModal(true);
+            jd_mod_cancion.pack();
+            jd_mod_cancion.setLocationRelativeTo(this);
+            jd_mod_cancion.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "OCURRIO UN ERROR");
+        }
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void jb_mod_cancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mod_cancionActionPerformed
+        // TODO add your handling code here:
+        try {
+            int po = jl_canciones.getSelectedIndex();
+            administratArtistas ap = new administratArtistas("./artistas.cbm");
+            ap.cargarArchivo();
+            String nombre = tf_cancion_nombre1.getText();
+            String compositor = tf_cancion_comp1.getText();
+            String distribuidor = tf_cancion_dist1.getText();
+            String productor = tf_cancion_pro1.getText();
+            String invitado = tf_cancion_inv1.getText();
+            int duracion = Integer.parseInt(tf_cancion_duracion1.getText());
+            boolean exclusivo = true;
+            if (rb_si1.isSelected()) {
+                exclusivo = true;
+            } else if (rb_no1.isSelected()) {
+                exclusivo = false;
+            }
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setCompositor(compositor);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setDistribuidor(distribuidor);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setDuracion(duracion);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setExclusivo(exclusivo);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setInvitado(invitado);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setNombre(nombre);
+            ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po).setProductor(productor);
+            ap.escribirArchivo();
+            DefaultListModel modelo = (DefaultListModel) jl_canciones.getModel();
+            modelo.set(po, ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(po));
+            jl_canciones.setModel(modelo);
+            jd_mod_cancion.hide();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "OCURRIO UN ERROR");
+        }
+    }//GEN-LAST:event_jb_mod_cancionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -831,10 +1143,15 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Distribuidor;
+    private javax.swing.JLabel Distribuidor1;
+    private javax.swing.JMenuItem add_cancion;
     private javax.swing.JMenuItem add_playlist;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JMenuItem eliminar;
     private javax.swing.JMenuItem eliminar_art;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -852,7 +1169,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -861,30 +1185,42 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jb_add_album;
     private javax.swing.JButton jb_add_art;
     private javax.swing.JButton jb_add_cancion;
     private javax.swing.JButton jb_crear_artista;
     private javax.swing.JButton jb_listar_artistas;
     private javax.swing.JButton jb_mod_art;
+    private javax.swing.JButton jb_mod_cancion;
     private javax.swing.JDialog jd_crear_album;
     private javax.swing.JDialog jd_crear_artista;
     private javax.swing.JDialog jd_crear_cancion;
     private javax.swing.JDialog jd_listar_album;
     private javax.swing.JDialog jd_listar_artista;
+    private javax.swing.JDialog jd_listar_canciones;
     private javax.swing.JDialog jd_mod_artista;
+    private javax.swing.JDialog jd_mod_cancion;
     private javax.swing.JList<String> jl_albums;
     private javax.swing.JList<String> jl_artistas;
+    private javax.swing.JList<String> jl_canciones;
+    private javax.swing.JMenuItem listar_canciones;
+    private javax.swing.JMenuItem modificar;
     private javax.swing.JMenuItem modificar_art;
+    private javax.swing.JPopupMenu popup_albums;
     private javax.swing.JPopupMenu popup_artistas;
+    private javax.swing.JPopupMenu popup_canciones;
     private javax.swing.JRadioButton rb_cd;
     private javax.swing.JRadioButton rb_digital;
     private javax.swing.JRadioButton rb_instrumental;
     private javax.swing.JRadioButton rb_instrumental1;
     private javax.swing.JRadioButton rb_no;
+    private javax.swing.JRadioButton rb_no1;
     private javax.swing.JRadioButton rb_si;
+    private javax.swing.JRadioButton rb_si1;
     private javax.swing.JRadioButton rb_voz;
     private javax.swing.JRadioButton rb_voz1;
+    private javax.swing.JMenuItem reproducir;
     private javax.swing.JTextField tf_alb_genero;
     private javax.swing.JTextField tf_alb_nombre;
     private javax.swing.JTextField tf_alb_productor;
@@ -898,11 +1234,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_art_nombre;
     private javax.swing.JTextField tf_art_nombre1;
     private javax.swing.JTextField tf_cancion_comp;
+    private javax.swing.JTextField tf_cancion_comp1;
     private javax.swing.JTextField tf_cancion_dist;
+    private javax.swing.JTextField tf_cancion_dist1;
     private javax.swing.JTextField tf_cancion_duracion;
+    private javax.swing.JTextField tf_cancion_duracion1;
     private javax.swing.JTextField tf_cancion_inv;
+    private javax.swing.JTextField tf_cancion_inv1;
     private javax.swing.JTextField tf_cancion_nombre;
+    private javax.swing.JTextField tf_cancion_nombre1;
     private javax.swing.JTextField tf_cancion_pro;
+    private javax.swing.JTextField tf_cancion_pro1;
     private javax.swing.JMenuItem ver_playlists;
     // End of variables declaration//GEN-END:variables
     int poArt;
