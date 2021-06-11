@@ -1,8 +1,9 @@
 package lab7p2_cesarbrito;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Artista {
+public class Artista implements Serializable {
 
     private String nombre;
     private String genero;
@@ -11,8 +12,7 @@ public class Artista {
     private String rol;
     private ArrayList<Album> albumes = new ArrayList();
 
-    public Artista() {
-    }
+    private static final long SerialVersionUID = 555L;
 
     public Artista(String nombre, String genero, String disquera, String alias, String rol) {
         this.nombre = nombre;
