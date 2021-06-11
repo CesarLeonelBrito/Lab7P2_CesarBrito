@@ -1,6 +1,5 @@
 package lab7p2_cesarbrito;
 
-import java.util.ArrayList;
 import javax.swing.JProgressBar;
 
 public class Reproducir extends Thread {
@@ -36,17 +35,18 @@ public class Reproducir extends Thread {
     @Override
     public void run() {
         while (vive) {
-            if (avanzar) {
+            if (avanzar) {   
                 Cancion x = album.getCanciones().get(po);
                 progBar.setString(x.getNombre());
                 progBar.setMaximum(x.getDuracion());
-                while (progBar.getValue() <= x.getDuracion()) {
+                while (progBar.getValue() < x.getDuracion()) {
                     progBar.setValue(progBar.getValue() + 1);
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
                     }
                 }
+                progBar.setValue(0);
                 po += 1;
                 if (po >= album.getCanciones().size()) {
                     po = 0;

@@ -732,8 +732,14 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
+        jd_reproducir.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jd_reproducirComponentHidden(evt);
+            }
+        });
+
         pg_rep.setMaximum(90);
-        pg_rep.setMinimum(12);
+        pg_rep.setValue(0);
         pg_rep.setName(""); // NOI18N
         pg_rep.setStringPainted(true);
 
@@ -1151,18 +1157,27 @@ public class Main extends javax.swing.JFrame {
     private void reproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reproducirActionPerformed
         // TODO add your handling code here:
         administratArtistas ap = new administratArtistas("./artistas.cbm");
-            ap.cargarArchivo();
+        ap.cargarArchivo();
+        repro = new Reproducir(pg_rep);
+        repro.setPo(jl_canciones.getSelectedIndex());
+        Album x = ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb);
+        repro.setAlbum(x);
+        try {
+            repro.start();
+        } catch (Exception e) {
+        }
+        repro.setAvanzar(true);
         jd_reproducir.setModal(true);
         jd_reproducir.pack();
         jd_reproducir.setLocationRelativeTo(this);
         jd_reproducir.setVisible(true);
-        repro.setPo(jl_canciones.getSelectedIndex());
-        Album x;
-        x = ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb);
-        repro.setAlbum(x);        
-        repro.start();
-        repro.setAvanzar(true);
     }//GEN-LAST:event_reproducirActionPerformed
+
+    private void jd_reproducirComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jd_reproducirComponentHidden
+        // TODO add your handling code here:
+        repro.suspend();
+        pg_rep.setValue(0);
+    }//GEN-LAST:event_jd_reproducirComponentHidden
 
     /**
      * @param args the command line arguments

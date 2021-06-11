@@ -1012,6 +1012,9 @@
     <Component class="javax.swing.ButtonGroup" name="buttonGroup5">
     </Component>
     <Container class="javax.swing.JDialog" name="jd_reproducir">
+      <Events>
+        <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="jd_reproducirComponentHidden"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1047,7 +1050,7 @@
         <Component class="javax.swing.JProgressBar" name="pg_rep">
           <Properties>
             <Property name="maximum" type="int" value="90"/>
-            <Property name="minimum" type="int" value="12"/>
+            <Property name="value" type="int" value="0"/>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>
