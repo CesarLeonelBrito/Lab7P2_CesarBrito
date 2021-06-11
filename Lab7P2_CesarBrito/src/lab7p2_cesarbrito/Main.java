@@ -1,5 +1,6 @@
 package lab7p2_cesarbrito;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -8,6 +9,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
+        repro = new Reproducir(pg_rep);
     }
 
     @SuppressWarnings("unchecked")
@@ -116,6 +118,9 @@ public class Main extends javax.swing.JFrame {
         Distribuidor1 = new javax.swing.JLabel();
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
+        jd_reproducir = new javax.swing.JDialog();
+        pg_rep = new javax.swing.JProgressBar();
+        jLabel31 = new javax.swing.JLabel();
         jb_crear_artista = new javax.swing.JButton();
         jb_listar_artistas = new javax.swing.JButton();
 
@@ -623,6 +628,11 @@ public class Main extends javax.swing.JFrame {
         popup_canciones.add(modificar);
 
         reproducir.setText("Reproducir");
+        reproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reproducirActionPerformed(evt);
+            }
+        });
         popup_canciones.add(reproducir);
 
         jLabel25.setText("Invitado(Si Hay):");
@@ -720,6 +730,38 @@ public class Main extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jb_mod_cancion)
                 .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        pg_rep.setMaximum(90);
+        pg_rep.setMinimum(12);
+        pg_rep.setName(""); // NOI18N
+        pg_rep.setStringPainted(true);
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel31.setText("REPRODUCCION");
+
+        javax.swing.GroupLayout jd_reproducirLayout = new javax.swing.GroupLayout(jd_reproducir.getContentPane());
+        jd_reproducir.getContentPane().setLayout(jd_reproducirLayout);
+        jd_reproducirLayout.setHorizontalGroup(
+            jd_reproducirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_reproducirLayout.createSequentialGroup()
+                .addGroup(jd_reproducirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_reproducirLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel31))
+                    .addGroup(jd_reproducirLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(pg_rep, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jd_reproducirLayout.setVerticalGroup(
+            jd_reproducirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_reproducirLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel31)
+                .addGap(69, 69, 69)
+                .addComponent(pg_rep, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -954,7 +996,7 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < ap.getListaArtistas().get(poArt).getAlbumes().size(); i++) {
             modelo.addElement(ap.getListaArtistas().get(poArt).getAlbumes().get(i));
         }
-        jl_albums.setModel(modelo);        
+        jl_albums.setModel(modelo);
         jd_listar_album.setModal(true);
         jd_listar_album.pack();
         jd_listar_album.setLocationRelativeTo(this);
@@ -1011,7 +1053,7 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().size(); i++) {
             modelo.addElement(ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb).getCanciones().get(i));
         }
-        jl_canciones.setModel(modelo);        
+        jl_canciones.setModel(modelo);
         jd_listar_canciones.setModal(true);
         jd_listar_canciones.pack();
         jd_listar_canciones.setLocationRelativeTo(this);
@@ -1061,7 +1103,7 @@ public class Main extends javax.swing.JFrame {
             } else if (x.isExclusivo() == false) {
                 rb_no1.setSelected(true);
             }
-            
+
             jd_mod_cancion.setModal(true);
             jd_mod_cancion.pack();
             jd_mod_cancion.setLocationRelativeTo(this);
@@ -1105,6 +1147,22 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "OCURRIO UN ERROR");
         }
     }//GEN-LAST:event_jb_mod_cancionActionPerformed
+
+    private void reproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reproducirActionPerformed
+        // TODO add your handling code here:
+        administratArtistas ap = new administratArtistas("./artistas.cbm");
+            ap.cargarArchivo();
+        jd_reproducir.setModal(true);
+        jd_reproducir.pack();
+        jd_reproducir.setLocationRelativeTo(this);
+        jd_reproducir.setVisible(true);
+        repro.setPo(jl_canciones.getSelectedIndex());
+        Album x;
+        x = ap.getListaArtistas().get(poArt).getAlbumes().get(poAlb);
+        repro.setAlbum(x);        
+        repro.start();
+        repro.setAvanzar(true);
+    }//GEN-LAST:event_reproducirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1177,6 +1235,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1201,12 +1260,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog jd_listar_canciones;
     private javax.swing.JDialog jd_mod_artista;
     private javax.swing.JDialog jd_mod_cancion;
+    private javax.swing.JDialog jd_reproducir;
     private javax.swing.JList<String> jl_albums;
     private javax.swing.JList<String> jl_artistas;
     private javax.swing.JList<String> jl_canciones;
     private javax.swing.JMenuItem listar_canciones;
     private javax.swing.JMenuItem modificar;
     private javax.swing.JMenuItem modificar_art;
+    private javax.swing.JProgressBar pg_rep;
     private javax.swing.JPopupMenu popup_albums;
     private javax.swing.JPopupMenu popup_artistas;
     private javax.swing.JPopupMenu popup_canciones;
@@ -1249,4 +1310,5 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int poArt;
     int poAlb;
+    Reproducir repro;
 }
