@@ -72,7 +72,7 @@ public class Artista implements Serializable {
 
     @Override
     public String toString() {
-        return nombre + " - " + albumes;
+        return nombre + " - " + alias;
     }
 
 }
